@@ -4,17 +4,21 @@ const contacts = require("../controllers/contact.controller");
 const router = express.Router();
 
 router.route("/")
-    .get(contacts.findAll)
-    .post(contacts.create)
     .delete(contacts.deleteAll)
+    .post(contacts.create)
+    .get(contacts.findAll);
+    
 
 router.route("/favorite")
-    .get(contacts.findAllFavorite)
+    .get(contacts.findAllFavorite);
 
 router.route("/:id")
-    .get(contacts.findOne)
+    .delete(contacts.delete)
     .put(contacts.update)
-    .delete(contacts.delete);
+
+    .get(contacts.findOne);
+    
+    
 
 
 module.exports = router;
